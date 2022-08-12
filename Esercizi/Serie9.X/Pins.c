@@ -1,0 +1,170 @@
+/* 
+ * File:   Pins.c
+ * Author: Cadons
+ *
+ * Created on 27 settembre 2021, 21.27
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <p32xxxx.h>
+
+#include "Pins.h"
+
+/*
+ * 
+ */
+void Delay(int d) {
+
+    while (d) {
+        d--;
+    }
+}
+
+void Init_Output_Led() {
+    TRISA = 0x0000; //set led
+}
+
+void Init_Input_Switch() {
+    TRISFbits.TRISF3 = 1; // RF3 (SW0) configured as input
+    TRISFbits.TRISF5 = 1; // RF5 (SW1) configured as input
+    TRISFbits.TRISF4 = 1; // RF4 (SW2) configured as input
+    TRISDbits.TRISD15 = 1; // RD15 (SW3) configured as input
+    TRISDbits.TRISD14 = 1; // RD14 (SW4) configured as input
+    TRISBbits.TRISB11 = 1; // RB11 (SW5) configured as input
+    ANSELBbits.ANSB11 = 0; // RB11 (SW5) disabled analog
+    TRISBbits.TRISB10 = 1; // RB10 (SW6) configured as input
+    ANSELBbits.ANSB10 = 0; // RB10 (SW6) disabled analog
+    TRISBbits.TRISB9 = 1; // RB9(SW6) configured as input
+    ANSELBbits.ANSB9 = 0; // RB9 (SW6) disabled analog
+}
+void resetLeds()
+{
+    for(int i=0;i<8;i++)
+        switchOffLed(i);
+}
+void switchOffLed(int led)
+{
+     switch (led) {
+                     case 0:
+                LATAbits.LATA0 = 0;
+                break;
+
+            case 1:
+                LATAbits.LATA1 = 0;
+                break;
+
+            case 2:
+                LATAbits.LATA2 = 0;
+                break;
+            case 3:
+                LATAbits.LATA3 = 0;
+                break;
+            case 4:
+                LATAbits.LATA4 = 0;
+                break;
+            case 5:
+                LATAbits.LATA5 = 0;
+                break;
+            case 6:
+                LATAbits.LATA6 = 0;
+                break;
+            case 7:
+                LATAbits.LATA7 = 0;
+                break;
+       
+        }
+}
+void switchOnLed(int led)
+{
+     switch (led) {
+            case 0:
+                LATAbits.LATA0 = 1;
+                break;
+
+            case 1:
+                LATAbits.LATA1 = 1;
+                break;
+
+            case 2:
+                LATAbits.LATA2 = 1;
+                break;
+            case 3:
+                LATAbits.LATA3 = 1;
+                break;
+            case 4:
+                LATAbits.LATA4 = 1;
+                break;
+            case 5:
+                LATAbits.LATA5 = 1;
+                break;
+            case 6:
+                LATAbits.LATA6 = 1;
+                break;
+            case 7:
+                LATAbits.LATA7 = 1;
+                break;      
+        }
+}
+int getSwitchValue(int switchNumber) {
+    switch (switchNumber) {
+        case 0:
+            return PORTFbits.RF3;
+            break;
+        case 1:
+            return PORTFbits.RF5;
+            break;
+        case 2:
+            return PORTFbits.RF4;
+            break;
+        case 3:
+            return PORTDbits.RD15;
+            break;
+        case 4:
+            return PORTDbits.RD14;
+        case 5:
+            return PORTBbits.RB11;
+            break;
+        case 6:
+            return PORTBbits.RB10;
+            break;
+        case 7:
+            return PORTBbits.RB9;
+            break;
+        default :
+            return 0;
+            break;
+    }
+}
+
+void Toggle(int ledNumber) {
+    //toggle su led0
+
+    switch (ledNumber) {
+        case 0:
+            LATAbits.LATA0 = ~LATAbits.LATA0;
+            break;
+        case 1:
+            LATAbits.LATA1 = ~LATAbits.LATA1;
+            break;
+        case 2:
+            LATAbits.LATA2 = ~LATAbits.LATA2;
+            break;
+        case 3:
+            LATAbits.LATA3 = ~LATAbits.LATA3;
+            break;
+        case 4:
+            LATAbits.LATA4 = ~LATAbits.LATA4;
+            break;
+        case 5:
+            LATAbits.LATA5 = ~LATAbits.LATA5;
+            break;
+        case 6:
+            LATAbits.LATA6 = ~LATAbits.LATA6;
+            break;
+        case 7:
+            LATAbits.LATA7 = ~LATAbits.LATA7;
+            break;
+    }
+}
+
