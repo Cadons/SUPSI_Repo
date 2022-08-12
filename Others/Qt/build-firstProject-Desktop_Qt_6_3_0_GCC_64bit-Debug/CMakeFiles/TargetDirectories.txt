@@ -1,0 +1,5 @@
+/home/cadons/Documents/2021-2022/C++/Others/Qt/build-firstProject-Desktop_Qt_6_3_0_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/cadons/Documents/2021-2022/C++/Others/Qt/build-firstProject-Desktop_Qt_6_3_0_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/cadons/Documents/2021-2022/C++/Others/Qt/build-firstProject-Desktop_Qt_6_3_0_GCC_64bit-Debug/CMakeFiles/firstProject.dir
+/home/cadons/Documents/2021-2022/C++/Others/Qt/build-firstProject-Desktop_Qt_6_3_0_GCC_64bit-Debug/CMakeFiles/firstProject_autogen_timestamp_deps.dir
+/home/cadons/Documents/2021-2022/C++/Others/Qt/build-firstProject-Desktop_Qt_6_3_0_GCC_64bit-Debug/CMakeFiles/firstProject_autogen.dir
