@@ -1,0 +1,20 @@
+<dependencies>
+            <dependency>
+                <groupId>com.influxdb</groupId>
+                <artifactId>influxdb-client-java</artifactId>
+                <version>3.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.iot.raspberry</groupId>
+                <artifactId>GrovePi-spec</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.iot.raspberry</groupId>
+                <artifactId>GrovePi-pi4j</artifactId>
+                <version>0.1.0-SNAPSHOT</version>
+            </dependency>
+</dependencies>
+
+jdk: /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt
+ip:10.42.0.253

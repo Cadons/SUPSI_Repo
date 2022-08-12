@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <option name="projectDefaultTargetUuid" value="39b74c58-aab0-4358-8b64-061956c6edb5" />
+    <targets>
+      <target name="pi@dex.local:22" type="ssh/sftp" uuid="2aa60947-f220-41f3-b931-753f5d206740">
+        <config>
+          <option name="projectRootOnTarget" value="$PROJECT_DIR$/../../../../../../../../../pi/InfluxDB_DistanceSensor" />
+          <option name="serverName" value="pi@10.42.0.253:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt" />
+            <option name="javaVersionString" value="1.8.0_65" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
