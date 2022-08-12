@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Matte/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Algoritmi e strutture dati/Esempi/main.c
+stdio.h
+-
+stdlib.h
+-
+time.h
+-
+math.h
+-
+
