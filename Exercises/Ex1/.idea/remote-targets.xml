@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="pi@10.42.0.253:22" type="ssh/sftp" uuid="f5d598e6-28ff-49a8-a376-0cc86a1c92b1">
+        <config>
+          <option name="projectRootOnTarget" value="$PROJECT_DIR$/../../../../../../../../pi/StadiumGate" />
+          <option name="serverName" value="pi@10.42.0.253:22 password" />
+          <option name="useRsync" value="true" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt" />
+            <option name="javaVersionString" value="1.8.0_65" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

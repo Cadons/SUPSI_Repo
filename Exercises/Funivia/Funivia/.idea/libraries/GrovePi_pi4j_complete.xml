@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GrovePi-pi4j-complete">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/GrovePi-pi4j-complete.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
