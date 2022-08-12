@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Matte/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/Esercizi/serie6/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+

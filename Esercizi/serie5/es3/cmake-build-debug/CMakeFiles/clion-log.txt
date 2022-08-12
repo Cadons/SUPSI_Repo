@@ -1,0 +1,8 @@
+C:\Windows\system32\wsl.exe --distribution Ubuntu-20.04 --exec /bin/sh -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd '/mnt/c/Users/Matte/Cadons/Cadons/Matteo/Università/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/Esercizi/serie5/es3/cmake-build-debug' && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' '/mnt/c/Users/Matte/Cadons/Cadons/Matteo/Università/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/Esercizi/serie5/es3'; sleep 0.001"
+CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+  CMake 3.20 or higher is required.  You are running version 3.16.3
+
+
+-- Configuring incomplete, errors occurred!
+Cannot read C:\Users\Matte\Cadons\Cadons\Matteo\Università\OneDrive - SUPSI\A.A. 2021-2022\Corsi\SA\Programmazione e Linguaggi 1\Esercizi\serie5\es3\cmake-build-debug\CMakeFiles\TargetDirectories.txt
+Cannot read CMake dependency information from 'C:\Users\Matte\Cadons\Cadons\Matteo\Università\OneDrive - SUPSI\A.A. 2021-2022\Corsi\SA\Programmazione e Linguaggi 1\Esercizi\serie5\es3\cmake-build-debug\CMakeFiles\Makefile.cmake'

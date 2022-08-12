@@ -1,0 +1,3 @@
+/mnt/c/Users/Matte/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/Esercizi/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Matte/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/Esercizi/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Matte/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/Esercizi/untitled/cmake-build-debug/CMakeFiles/untitled.dir

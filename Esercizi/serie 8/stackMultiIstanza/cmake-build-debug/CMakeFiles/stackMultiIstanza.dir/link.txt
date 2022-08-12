@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/stackMultiIstanza.dir/main.c.o CMakeFiles/stackMultiIstanza.dir/stack.c.o  -o stackMultiIstanza 

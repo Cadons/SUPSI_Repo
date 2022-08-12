@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/serie5_es5.dir/main.c.o  -o serie5_es5 

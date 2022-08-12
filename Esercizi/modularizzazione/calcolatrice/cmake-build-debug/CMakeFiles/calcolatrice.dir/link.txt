@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/calcolatrice.dir/main.c.o CMakeFiles/calcolatrice.dir/stack.c.o  -o calcolatrice 

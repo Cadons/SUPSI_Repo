@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Matte/Cadons/Cadons/Matteo/Università/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/librerie/stack.c
+stack.h
+/mnt/c/Users/Matte/Cadons/Cadons/Matteo/Università/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/librerie/stack.h
+
+/mnt/c/Users/Matte/Cadons/Cadons/Matteo/Università/OneDrive - SUPSI/A.A. 2021-2022/Corsi/SA/Programmazione e Linguaggi 1/librerie/stack.h
+
