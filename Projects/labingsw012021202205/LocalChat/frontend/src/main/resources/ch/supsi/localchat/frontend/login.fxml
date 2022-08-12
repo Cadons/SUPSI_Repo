@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.supsi.localchat.frontend.LoginController">
+
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <Label alignment="CENTER" ellipsisString="" layoutX="104.0" layoutY="13.0" prefHeight="83.0" prefWidth="390.0" text="Local Chat" textAlignment="CENTER">
+                    <font>
+                        <Font name="Arial Bold Italic" size="30.0" />
+                    </font>
+                </Label>
+                <Separator layoutX="199.0" layoutY="85.0" prefWidth="200.0" />
+                <AnchorPane layoutX="199.0" layoutY="136.0" prefHeight="126.0" prefWidth="200.0">
+                    <children>
+                        <TextField fx:id="usernameTxt" layoutX="5.0" layoutY="30.0" onKeyPressed="#keyPressed" prefHeight="26.0" prefWidth="227.0" promptText="Username" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Button fx:id="loginBtn" layoutX="-1.0" layoutY="66.0" mnemonicParsing="false" onAction="#loginButton" text="Login" AnchorPane.leftAnchor="0.0" />
+                        <Button fx:id="registerBtn" layoutX="141.0" layoutY="66.0" mnemonicParsing="false" onAction="#registerButton" text="Register" textFill="#141414" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="1.0" layoutY="-1.0" prefHeight="30.0" prefWidth="78.0" text="Username" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

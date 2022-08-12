@@ -1,0 +1,5 @@
+target/
+*.iml
+../makeActivity/
+../.DS_Store
+.DS_Store
