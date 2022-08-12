@@ -1,0 +1,9 @@
+Exercise 2 – Text analyzer
+Write a program that reads a text file and outputs the following information: 
+- the longest word
+- the shortest word with at least 5 characters
+- the word that contains the highest number of vowels
+- the list of words that start with a vowel
+- the list of words that start with a capital T
+The program must include the following helper methods, which must be used to gather the information
+described above
