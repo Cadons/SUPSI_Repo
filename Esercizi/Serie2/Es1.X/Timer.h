@@ -1,0 +1,1 @@
+void init_Timer(int mode);
