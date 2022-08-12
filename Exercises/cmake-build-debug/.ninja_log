@@ -1,0 +1,6 @@
+# ninja log v5
+300	398	1648803394987899542	Exercises	f402ca1fbc6a6a4c
+1	29	1651194655972823664	build.ninja	8b2cb12f8943662
+1	300	1648803394891928226	CMakeFiles/Exercises.dir/Todo/main.cpp.o	1f6b23e1075cf829
+2	238	1648802548506868065	CMakeFiles/Exercises.dir/Todo/TodoElement.cpp.o	67c96d87502184f6
+1	354	1651194659536902630	CMakeFiles/Exercises.dir/Todo/TodoElement.cpp.o	29f7d4d6bad5f4f7

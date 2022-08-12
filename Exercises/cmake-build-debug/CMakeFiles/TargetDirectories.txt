@@ -1,0 +1,3 @@
+/home/cadons/Documents/SUPSI/SUPSI/2021-2022/C++/Exercises/cmake-build-debug/CMakeFiles/Exercises.dir
+/home/cadons/Documents/SUPSI/SUPSI/2021-2022/C++/Exercises/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/cadons/Documents/SUPSI/SUPSI/2021-2022/C++/Exercises/cmake-build-debug/CMakeFiles/rebuild_cache.dir

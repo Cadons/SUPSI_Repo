@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "firstProject",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "firstProject::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-firstProject-Debug-9776cdef0640bf228e29.json",
+					"name" : "firstProject",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "firstProject_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-firstProject_autogen-Debug-70fc9a523b88cf842e4b.json",
+					"name" : "firstProject_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "firstProject_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-firstProject_autogen_timestamp_deps-Debug-9433b2abf1de09c7ad5f.json",
+					"name" : "firstProject_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/cadons/Documents/2021-2022/C++/Others/Qt/build-firstProject-Desktop_Qt_6_3_0_GCC_64bit-Debug",
+		"source" : "/home/cadons/Documents/2021-2022/C++/Others/Qt/firstProject"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
