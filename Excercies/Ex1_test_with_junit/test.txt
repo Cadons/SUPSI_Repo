@@ -1,0 +1,10 @@
+number of a:2
+ciaociao
+comecome
+staistai
+oggioggi
+CIAOCIAOCIAOCIAOCIAO
+COMECOMECOMECOMECOME
+STAISTAISTAISTAISTAI
+OGGIOGGIOGGIOGGIOGGI
+number of a:10
