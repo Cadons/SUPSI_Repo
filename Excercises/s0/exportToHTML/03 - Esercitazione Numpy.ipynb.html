@@ -1,0 +1,349 @@
+<html>
+<head>
+<title>03 - Esercitazione Numpy.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+03 - Esercitazione Numpy.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">{ 
+ &quot;cells&quot;: [ 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;# Esercitazione Numpy&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;## Istruzioni\n&quot;, 
+    &quot;Valgono le stesse istruzioni delle esercitazioni precedenti. \n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Scrivi il programma Python nella cella sotto il testo dell'esercizio (o creane una nuova). Stampa sempre a video il risultato finale per verificare la correttezza dell'esercizio.  Talvolta richiamiamo alcuni concetti importanti in una cella di codice sotto il testo dell'esercizio, prova a eseguirla ed eventualmente modificarla per assicurarti di aver capito il necessario.\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;## Consegna\n&quot;, 
+    &quot;Valgono le regole delle esercitazioni precedenti.\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;E' obbligatorio **consegnare la soluzione di tutti gli esercizi** (tranne quelli marcati come opzionali) **entro l'inizio della lezione successiva**, nell'apposito assignment su iCorsi.  Per consegnare:\n&quot;, 
+    &quot;- eseguire l'intero notebook partendo da zero (`Kernel -&gt; Restart &amp; Run All`), e controllare che le soluzioni siano quelle attese;\n&quot;, 
+    &quot;- esportare il notebook in formato html (`File -&gt; Download as...`) e consegnare il file risultante.\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Nel caso non abbiate potuto completare uno o piu' esercizi, descrivete il problema incontrato e **consegnate comunque il file con il resto delle soluzioni**.&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;## Esercizio 1\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Consideriamo il dataset dei profili di online dating, di cui abbiamo accennato a lezione.\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Scarica i file zip da [questo link](https://github.com/rudeboybert/JSE_OkCupid), scompattali e metti il file `profiles_revised.csv` e `essays_revised_and_shuffled.csv` in una sottodirectory `data` della directory corrente.  Poi esegui la cella seguente, che utilizza la libreria pandas (di cui parleremo estesamente in seguito) per parsare il CSV.&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;La directory corrente, in cui ci aspettiamo di trovare il file, e' questa:&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: null, 
+   &quot;metadata&quot;: {}, 
+   &quot;outputs&quot;: [], 
+   &quot;source&quot;: [ 
+    &quot;pwd&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: 2, 
+   &quot;metadata&quot;: {}, 
+   &quot;outputs&quot;: [], 
+   &quot;source&quot;: [ 
+    &quot;import pandas as pd\n&quot;, 
+    &quot;import numpy as np\n&quot;, 
+    &quot;df = pd.read_csv(\&quot;data/profiles_revised.csv\&quot;)\n&quot;, 
+    &quot;age = df[\&quot;age\&quot;].values\n&quot;, 
+    &quot;sex = df[\&quot;sex\&quot;].values\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;dfe = pd.read_csv(\&quot;data/essays_revised_and_shuffled.csv\&quot;)\n&quot;, 
+    &quot;essay = dfe[\&quot;essay0\&quot;].values&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;### 1.1\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Leggi il [codebook](https://github.com/rudeboybert/JSE_OkCupid/blob/master/okcupid_codebook_revised.txt) per il dataset, concentrandoti sulle tre colonne \&quot;age\&quot;, \&quot;sex\&quot; e \&quot;essay0\&quot;.\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Spiega di che tipo sono gli array `age`, `sex` e `essay`; visualizzane alcuni elementi.&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: null, 
+   &quot;metadata&quot;: { 
+    &quot;scrolled&quot;: true 
+   }, 
+   &quot;outputs&quot;: [], 
+   &quot;source&quot;: [ 
+    &quot;print(age.dtype)\n&quot;, 
+    &quot;print(sex.dtype)\n&quot;, 
+    &quot;print(type(sex[0]))#elemento di sex\n&quot;, 
+    &quot;print(essay.dtype)\n&quot;, 
+    &quot;print(type(essay[0]))#elemento di essay&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;### 1.2\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;Analizza gli array con i metodi di numpy che conosci e rispondi alle seguenti domande:\n&quot;, 
+    &quot;- Quale e' l'eta' media, minima e massima degli utenti?\n&quot;, 
+    &quot;- Quanti sono maschi e quanti femmine?\n&quot;, 
+    &quot;- L'eta' media dei maschi differisce molto dall'eta' media delle femmine?\n&quot;, 
+    &quot;- Quanti sono lunghe le loro presentazioni in media?\n&quot;, 
+    &quot;- Visualizza la presentazione piu' lunga\n&quot;, 
+    &quot;- Possiamo sapere se i maschi tendono a scrivere di piu' rispetto alle femmine?&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: 21, 
+   &quot;metadata&quot;: {}, 
+   &quot;outputs&quot;: [ 
+    { 
+     &quot;name&quot;: &quot;stdout&quot;, 
+     &quot;output_type&quot;: &quot;stream&quot;, 
+     &quot;text&quot;: [ 
+      &quot;17\n&quot;, 
+      &quot;111\n&quot;, 
+      &quot;v1 m=35829 f=24117\n&quot;, 
+      &quot;v2 m=35829 f=24117\n&quot;, 
+      &quot;v3 m=35829 f=24117\n&quot;, 
+      &quot;32.33540186167551\n&quot;, 
+      &quot;m:32.012950403304586\n&quot;, 
+      &quot;f:32.81444624124062\n&quot;, 
+      &quot;difference=0.8014958379360309\n&quot;, 
+      &quot;lunghezza media:678.9306045247539\n&quot;, 
+      &quot;lunghezza massima:48854\n&quot;, 
+      &quot;easy going yet passionate. friendly, down to earth. if you make me\n&quot;, 
+      &quot;laugh and also laugh with me, you're probably one of my favorite\n&quot;, 
+      &quot;people. love to play and watch competitive sports (play: tennis,\n&quot;, 
+      &quot;volleyball, swimming. watch: football, basketball). admittedly a\n&quot;, 
+      &quot;bit of a homebody, however i am very social and active. i enjoy\n&quot;, 
+      &quot;tennis, hiking with my dogs and often have an aching need to be\n&quot;, 
+      &quot;submersed in water.\n&quot;, 
+      &quot;True\n&quot; 
+     ] 
+    } 
+   ], 
+   &quot;source&quot;: [ 
+    &quot;print(np.min(age))#età minima 17\n&quot;, 
+    &quot;print(np.max(age))#età massima 111\n&quot;, 
+    &quot;a=0\n&quot;, 
+    &quot;b=0\n&quot;, 
+    &quot;for e in sex:\n&quot;, 
+    &quot;    if e=='m':\n&quot;, 
+    &quot;        a=a+1\n&quot;, 
+    &quot;    else:\n&quot;, 
+    &quot;        b=b+1\n&quot;, 
+    &quot;print(f\&quot;v1 m={a} f={b}\&quot;)\n&quot;, 
+    &quot;maschi=sex[sex==\&quot;m\&quot;]\n&quot;, 
+    &quot;femmine=sex[sex==\&quot;f\&quot;]\n&quot;, 
+    &quot;print(f\&quot;v2 m={np.sum(sex=='m')} f={np.sum(sex=='f')}\&quot;)\n&quot;, 
+    &quot;print(f\&quot;v3 m={len(maschi)} f={len(femmine)}\&quot;)\n&quot;, 
+    &quot;print(np.average(age))#età media 32.335\n&quot;, 
+    &quot;#matrix=np.array([sex,age])\n&quot;, 
+    &quot;#print(matrix)\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;print(f\&quot;m:{np.average(age[sex=='m'])}\&quot;)\n&quot;, 
+    &quot;print(f\&quot;f:{np.average(age[sex=='f'])}\&quot;)\n&quot;, 
+    &quot;print(f\&quot;difference={abs(np.average(age[sex=='m'])-np.average(age[sex=='f']))}\&quot;)\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;length=[]\n&quot;, 
+    &quot;for e in essay:\n&quot;, 
+    &quot;    if type(e)==str:\n&quot;, 
+    &quot;       length.append(len(e))\n&quot;, 
+    &quot;print(f\&quot;lunghezza media:{np.mean(length)}\&quot;);\n&quot;, 
+    &quot;print(f\&quot;lunghezza massima:{np.max(length)}\&quot;);\n&quot;, 
+    &quot;print(essay[np.max(length)])\n&quot;, 
+    &quot;print(len(essay[sex==\&quot;m\&quot;])&gt;len(essay[sex==\&quot;f\&quot;]))\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;\n&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: null, 
+   &quot;outputs&quot;: [], 
+   &quot;source&quot;: [ 
+    &quot;for a,s in zip(age,sex):\n&quot;, 
+    &quot;    print(a,s)#stampa anni e sesso corrispondente&quot; 
+   ], 
+   &quot;metadata&quot;: { 
+    &quot;collapsed&quot;: false 
+   } 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;## Esercizio 2&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;### 2.1 \n&quot;, 
+    &quot;Si costruisca una funzione ``numeriPrimi(N)`` che riceve come argomento (opzionale) di ingresso un numero intero ``N`` (valore di default ``N=1000``) e restituisce un array con tutti i numeri primi minori o uguali a ``N`` (non si consideri nè $0$ nè $1$)&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: null, 
+   &quot;outputs&quot;: [], 
+   &quot;source&quot;: [], 
+   &quot;metadata&quot;: { 
+    &quot;collapsed&quot;: false 
+   } 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: 32, 
+   &quot;metadata&quot;: {}, 
+   &quot;outputs&quot;: [ 
+    { 
+     &quot;name&quot;: &quot;stdout&quot;, 
+     &quot;output_type&quot;: &quot;stream&quot;, 
+     &quot;text&quot;: [ 
+      &quot;[1, 2, 3, 5, 7, 11, 13, 17, 19]\n&quot; 
+     ] 
+    } 
+   ], 
+   &quot;source&quot;: [ 
+    &quot;# Solution\n&quot;, 
+    &quot;def numeriPrimi(N=1000):\n&quot;, 
+    &quot;    numeri=np.arange(N)\n&quot;, 
+    &quot;    output=[]\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;    for i in numeri:\n&quot;, 
+    &quot;        noPrimo=False\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;        for j in range(1,11):\n&quot;, 
+    &quot;            np.max(length)\n&quot;, 
+    &quot;            if i%j==0 and j!=1 and i!=j:\n&quot;, 
+    &quot;                noPrimo=True\n&quot;, 
+    &quot;                break;\n&quot;, 
+    &quot;        if noPrimo ==False:\n&quot;, 
+    &quot;            output.append(i)\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;    return output\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;print(numeriPrimi(20))&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;markdown&quot;, 
+   &quot;metadata&quot;: {}, 
+   &quot;source&quot;: [ 
+    &quot;### 2.2\n&quot;, 
+    &quot;Si scriva una funzione  ``creoMioDizionario(N)`` che riceve come argomento (opzionale) di ingresso un numero intero ``N`` (valore di default ``N=1000``) e restituisce un dizionario con due elementi. Il primo ha chiave \&quot;medio\&quot;, a cui è associato un array con tutti i numeri primi compresi tra $\\frac{1}{4}N$ e $\\frac{3}{4}N$ (estremi inclusi). Il secondo elemento del dizionario ha chiave \&quot;estremi\&quot; e contiene i restanti numeri primi minori di $N$. Hint: Usa la funzione ``numeriPrimi(N)`` creata precedentemente.   &quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: null, 
+   &quot;metadata&quot;: {}, 
+   &quot;outputs&quot;: [], 
+   &quot;source&quot;: [ 
+    &quot;# Hint\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;# Ricordatevi che l'operatore logico AND (rispettivamente OR) tra 2 variabili Booleane (o array Booleani) \n&quot;, 
+    &quot;# si esegue in Python tramite l'operatore ``&amp;`` (rispettivamente ``|``)\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;array1 = np.array(np.arange(10))\n&quot;, 
+    &quot;print(f\&quot;array1: {array1}\&quot;)\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;mask1 = (array1 &gt; 2) &amp; (array1 &lt; 8)\n&quot;, 
+    &quot;print(\&quot;mask1: \&quot;, mask1)\n&quot;, 
+    &quot;\n&quot;, 
+    &quot;mask2 = (array1[0:3] == 2) | (array1[0:3] == 1)\n&quot;, 
+    &quot;print(\&quot;mask2: \&quot;, mask2)&quot; 
+   ] 
+  }, 
+  { 
+   &quot;cell_type&quot;: &quot;code&quot;, 
+   &quot;execution_count&quot;: 42, 
+   &quot;metadata&quot;: {}, 
+   &quot;outputs&quot;: [ 
+    { 
+     &quot;ename&quot;: &quot;TypeError&quot;, 
+     &quot;evalue&quot;: &quot;'&lt;' not supported between instances of 'float' and 'str'&quot;, 
+     &quot;output_type&quot;: &quot;error&quot;, 
+     &quot;traceback&quot;: [ 
+      &quot;\u001B[1;31m---------------------------------------------------------------------------\u001B[0m&quot;, 
+      &quot;\u001B[1;31mTypeError\u001B[0m                                 Traceback (most recent call last)&quot;, 
+      &quot;Input \u001B[1;32mIn [42]\u001B[0m, in \u001B[0;36m&lt;cell line: 7&gt;\u001B[1;34m()\u001B[0m\n\u001B[0;32m      5\u001B[0m   \u001B[38;5;66;03m#  diz[\&quot;estremi\&quot;]=numeriPrimi(N)[:e&lt;N]\u001B[39;00m\n\u001B[0;32m      6\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m diz\n\u001B[1;32m----&gt; 7\u001B[0m \u001B[38;5;28mprint\u001B[39m(\u001B[43mcreaDizionario\u001B[49m\u001B[43m(\u001B[49m\u001B[38;5;241;43m20\u001B[39;49m\u001B[43m)\u001B[49m)\n&quot;, 
+      &quot;Input \u001B[1;32mIn [42]\u001B[0m, in \u001B[0;36mcreaDizionario\u001B[1;34m(N)\u001B[0m\n\u001B[0;32m      2\u001B[0m \u001B[38;5;28;01mdef\u001B[39;00m \u001B[38;5;21mcreaDizionario\u001B[39m(N\u001B[38;5;241m=\u001B[39m\u001B[38;5;241m1000\u001B[39m):\n\u001B[0;32m      3\u001B[0m     diz\u001B[38;5;241m=\u001B[39m\u001B[38;5;28mdict\u001B[39m()\n\u001B[1;32m----&gt; 4\u001B[0m     diz[\u001B[38;5;124m\&quot;\u001B[39m\u001B[38;5;124mmedio\u001B[39m\u001B[38;5;124m\&quot;\u001B[39m]\u001B[38;5;241m=\u001B[39mnumeriPrimi(N)[N \u001B[38;5;241m/\u001B[39m \u001B[38;5;241m4\u001B[39m \u001B[38;5;241m&lt;\u001B[39m e \u001B[38;5;241m&lt;\u001B[39m (\u001B[38;5;241m3\u001B[39m \u001B[38;5;241m/\u001B[39m \u001B[38;5;241m4\u001B[39m) \u001B[38;5;241m*\u001B[39m N]\n\u001B[0;32m      5\u001B[0m   \u001B[38;5;66;03m#  diz[\&quot;estremi\&quot;]=numeriPrimi(N)[:e&lt;N]\u001B[39;00m\n\u001B[0;32m      6\u001B[0m     \u001B[38;5;28;01mreturn\u001B[39;00m diz\n&quot;, 
+      &quot;\u001B[1;31mTypeError\u001B[0m: '&lt;' not supported between instances of 'float' and 'str'&quot; 
+     ] 
+    } 
+   ], 
+   &quot;source&quot;: [ 
+    &quot;# Solution\n&quot;, 
+    &quot;def creaDizionario(N=1000):\n&quot;, 
+    &quot;    diz=dict()\n&quot;, 
+    &quot;    diz[\&quot;medio\&quot;]=numeriPrimi(N)[N / 4 &lt; e &lt; (3 / 4) * N]\n&quot;, 
+    &quot;    diz[\&quot;estremi\&quot;]=numeriPrimi(N)[:e&lt;N]\n&quot;, 
+    &quot;    return diz\n&quot;, 
+    &quot;print(creaDizionario(20))&quot; 
+   ] 
+  } 
+ ], 
+ &quot;metadata&quot;: { 
+  &quot;kernelspec&quot;: { 
+   &quot;display_name&quot;: &quot;Python 3 (ipykernel)&quot;, 
+   &quot;language&quot;: &quot;python&quot;, 
+   &quot;name&quot;: &quot;python3&quot; 
+  }, 
+  &quot;language_info&quot;: { 
+   &quot;codemirror_mode&quot;: { 
+    &quot;name&quot;: &quot;ipython&quot;, 
+    &quot;version&quot;: 3 
+   }, 
+   &quot;file_extension&quot;: &quot;.py&quot;, 
+   &quot;mimetype&quot;: &quot;text/x-python&quot;, 
+   &quot;name&quot;: &quot;python&quot;, 
+   &quot;nbconvert_exporter&quot;: &quot;python&quot;, 
+   &quot;pygments_lexer&quot;: &quot;ipython3&quot;, 
+   &quot;version&quot;: &quot;3.10.6&quot; 
+  } 
+ }, 
+ &quot;nbformat&quot;: 4, 
+ &quot;nbformat_minor&quot;: 4 
+} 
+</span></pre>
+</body>
+</html>

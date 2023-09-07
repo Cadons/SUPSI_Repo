@@ -1,0 +1,146 @@
+<html>
+<head>
+<title>09 - Esercizi analisi univariata e bivariata.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+09 - Esercizi analisi univariata e bivariata.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+</span><span class="s1"># Esercitazione 
+</span><span class="s0">#%% md 
+</span><span class="s1">## Istruzioni 
+Valgono le stesse istruzioni delle esercitazioni precedenti.  
+ 
+Scrivi il programma Python nella cella sotto il testo dell'esercizio (o creane una nuova). Stampa sempre a video il risultato finale per verificare la correttezza dell'esercizio.  Talvolta richiamiamo alcuni concetti importanti in una cella di codice sotto il testo dell'esercizio, prova a eseguirla ed eventualmente modificarla per assicurarti di aver capito il necessario. 
+ 
+ 
+## Consegna 
+Valgono le regole delle esercitazioni precedenti. 
+ 
+E' obbligatorio **consegnare la soluzione di tutti gli esercizi** (tranne quelli marcati come opzionali) **entro la scadenza**, come specificato nell'apposito assignment su iCorsi.  Per consegnare: 
+- eseguire l'intero notebook partendo da zero (`Kernel -&gt; Restart &amp; Run All`), e controllare che le soluzioni siano quelle attese; 
+- esportare il notebook in formato html (`File -&gt; Download as...`) e consegnare il file risultante. 
+ 
+Nel caso non abbiate potuto completare uno o piu' esercizi, descrivete il problema incontrato e **consegnate comunque il file con il resto delle soluzioni**. 
+</span><span class="s0">#%% md 
+</span><span class="s1">## Esercizio 1 
+Considera il dataset della stralugano. 
+- Visualizza la distribuzione dei tempi di atleti con squadra e senza squadra, usando un boxplot (con due box), e visualizzando i due istogrammi in modo che siano confrontabili. 
+- Visualizza la distribuzione delle eta' di atleti con squadra e senza squadra, usando un boxplot (con due box), e visualizzando i due istogrammi in modo che siano confrontabili. 
+- Studia la relazione tra tempi ed eta' dei corridori (indipendentemente dal sesso). Visualizza uno scatter plot e calcola il coefficiente di correlazione lineare.  Scrivi una breve frase per commentare lo scatter plot che ottieni. 
+- Crea uno scatter plot che mostri il tempo ottenuto (asse $y$) vs il posto di arrivo (asse $x$). Prima di eseguirlo, prova a immaginarti cosa otterrai, e poi verifica se la tua ipotesi era corretta. 
+ 
+Etichetta correttamente tutti gli assi, e dai un titolo descrittivo ad ogni plot! 
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s2">import </span><span class="s1">pandas </span><span class="s2">as </span><span class="s1">pd</span>
+<span class="s2">import </span><span class="s1">numpy </span><span class="s2">as </span><span class="s1">np</span>
+<span class="s2">import </span><span class="s1">plotly </span><span class="s2">as </span><span class="s1">pl</span>
+<span class="s2">import </span><span class="s1">plotly.express </span><span class="s2">as </span><span class="s1">plx</span>
+<span class="s1">df=pd.read_csv(</span><span class="s3">&quot;data/stralugano.csv&quot;</span><span class="s2">,</span>
+               <span class="s1">keep_default_na=</span><span class="s2">False</span><span class="s1">);</span>
+<span class="s1">df = df.dropna(axis=</span><span class="s4">0</span><span class="s2">, </span><span class="s1">subset=[</span><span class="s3">&quot;anno&quot;</span><span class="s1">])</span>
+<span class="s1">df[</span><span class="s3">&quot;eta&quot;</span><span class="s1">]=</span><span class="s4">2016</span><span class="s1">-pd.to_numeric(df[</span><span class="s3">&quot;anno&quot;</span><span class="s1">]</span><span class="s2">,</span><span class="s1">errors=</span><span class="s3">&quot;coerce&quot;</span><span class="s1">)</span>
+<span class="s1">df[</span><span class="s3">&quot;tempo&quot;</span><span class="s1">]=df[</span><span class="s3">&quot;ore&quot;</span><span class="s1">]*</span><span class="s4">60</span><span class="s1">+df[</span><span class="s3">&quot;minuti&quot;</span><span class="s1">]+df[</span><span class="s3">&quot;secondi&quot;</span><span class="s1">]/</span><span class="s4">60</span><span class="s1">+df[</span><span class="s3">&quot;decimi&quot;</span><span class="s1">]/</span><span class="s4">600</span>
+<span class="s1">df[</span><span class="s3">&quot;sq&quot;</span><span class="s1">] = </span><span class="s3">&quot;Con squadra&quot;</span>
+<span class="s1">df.loc[df[</span><span class="s3">&quot;squadra&quot;</span><span class="s1">] == </span><span class="s3">&quot;&quot;</span><span class="s2">, </span><span class="s3">&quot;sq&quot;</span><span class="s1">] = </span><span class="s3">&quot;Indipendente&quot;</span>
+<span class="s1">df</span>
+<span class="s0">#%% 
+</span><span class="s1">distTempo=df.groupby([</span><span class="s3">&quot;sq&quot;</span><span class="s2">,</span><span class="s3">&quot;tempo&quot;</span><span class="s1">]).size()</span>
+<span class="s1">fig=plx.box(distTempo</span><span class="s2">, </span><span class="s1">y=df[</span><span class="s3">&quot;tempo&quot;</span><span class="s1">]</span><span class="s2">,</span><span class="s1">x=df[</span><span class="s3">&quot;sq&quot;</span><span class="s1">])</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;xaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Tipo di concorrente&quot;</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;yaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Tempo&quot;</span>
+<span class="s1">fig</span>
+<span class="s0">#%% 
+</span><span class="s1">distEta=df.groupby([</span><span class="s3">&quot;sq&quot;</span><span class="s2">,</span><span class="s3">&quot;eta&quot;</span><span class="s1">]).size()</span>
+<span class="s1">fig=plx.box(distEta</span><span class="s2">, </span><span class="s1">y=df[</span><span class="s3">&quot;eta&quot;</span><span class="s1">]</span><span class="s2">,</span><span class="s1">x=df[</span><span class="s3">&quot;sq&quot;</span><span class="s1">])</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;xaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Tipo di concorrente&quot;</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;yaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Anni&quot;</span>
+<span class="s1">fig</span>
+<span class="s0">#%% 
+</span>
+<span class="s1">fig=plx.scatter(df</span><span class="s2">,</span><span class="s3">&quot;eta&quot;</span><span class="s2">,</span><span class="s1">y=</span><span class="s3">&quot;tempo&quot;</span><span class="s1">)</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;xaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Anni&quot;</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;yaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Tempo&quot;</span>
+<span class="s1">fig.show()</span>
+
+<span class="s1">print(</span><span class="s3">f&quot;Coefficente di correlazione lineare: </span><span class="s2">{</span><span class="s1">np.corrcoef(df[</span><span class="s3">'eta'</span><span class="s1">]</span><span class="s2">,</span><span class="s1">df[</span><span class="s3">'tempo'</span><span class="s1">])[</span><span class="s4">0</span><span class="s2">,</span><span class="s4">1</span><span class="s1">]</span><span class="s2">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+</span><span class="s1">fig=plx.scatter(df</span><span class="s2">,</span><span class="s3">&quot;tempo&quot;</span><span class="s2">,</span><span class="s1">y=</span><span class="s3">&quot;posto&quot;</span><span class="s1">)</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;xaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Tempo&quot;</span>
+<span class="s1">fig.layout[</span><span class="s3">&quot;yaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Posto&quot;</span>
+<span class="s1">fig.show()</span>
+<span class="s0">#%% md 
+</span><span class="s1">## Esercizio 2 
+Considera il dataset IMDB. Genera dei grafici che siano efficaci per rispondere alle seguenti domande: 
+- Come sono distribuiti nel tempo i film presenti nel database? 
+- Come sono distribuite le durate dei film in generale? 
+- Come differiscono le durate dai film in funzione del genere? Puoi limitare l'analisi a pochi generi, ad esempio Documentario e Horror. 
+- I film vengono pubblicati in modo uniforme durante l'anno, oppure ci sono dei mesi in cui alcuni film vengono pubblicati piu' frequentemente?  Prova a limitare l'analisi ai film di maggior successo (come fai a filtrarli?), e/o al periodo successivo al 2000. 
+- Considera il budget e l'income dei film. Studia come sono legate queste due variabili; visualizza la relazione tramite uno scatter plot; cosa rappresenta la diagonale di questo plot?  Ci sono dei punti che spiccano? A che film corrispondono? Prova a utilizzare le funzionalita' di hovering di plotly per mostrare il titolo del film quando ci passi sopra il mouse. 
+ 
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">df=pd.read_csv(</span><span class="s3">&quot;data/IMDb movies.csv&quot;</span><span class="s1">)</span>
+
+<span class="s0">#%% 
+</span><span class="s1">df.groupby([</span><span class="s3">&quot;year&quot;</span><span class="s1">]).size()</span>
+<span class="s1">plx.histogram(df</span><span class="s2">,</span><span class="s1">x=</span><span class="s3">&quot;year&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+</span><span class="s1">plx.box(df</span><span class="s2">,</span><span class="s1">y=</span><span class="s3">&quot;duration&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+</span><span class="s1">df2=df.loc[(df[</span><span class="s3">&quot;genre&quot;</span><span class="s1">]==</span><span class="s3">&quot;Horror&quot;</span><span class="s1">) | (df[</span><span class="s3">&quot;genre&quot;</span><span class="s1">]==</span><span class="s3">&quot;Drama&quot; </span><span class="s1">)]</span>
+<span class="s1">plx.box(df2</span><span class="s2">,</span><span class="s1">x=</span><span class="s3">&quot;genre&quot;</span><span class="s2">,</span><span class="s1">y=</span><span class="s3">&quot;duration&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+</span><span class="s1">df2=df.loc[pd.to_numeric(df[</span><span class="s3">&quot;year&quot;</span><span class="s1">]</span><span class="s2">,</span><span class="s1">errors=</span><span class="s3">&quot;coerce&quot;</span><span class="s1">)&gt;=</span><span class="s4">2000</span><span class="s1">]</span>
+
+<span class="s1">plx.box(df2</span><span class="s2">,</span><span class="s1">x=</span><span class="s3">&quot;year&quot;</span><span class="s2">,</span><span class="s1">y=pd.to_datetime(df2[</span><span class="s3">&quot;date_published&quot;</span><span class="s1">]</span><span class="s2">,</span><span class="s1">errors=</span><span class="s3">'coerce'</span><span class="s1">).dt.month)</span>
+<span class="s0">#giugno è il mese con più uscite nei film dal 2000 in poi</span>
+<span class="s0">#%% 
+</span><span class="s1">df2.dropna(axis=</span><span class="s4">0</span><span class="s2">,</span><span class="s1">subset=[</span><span class="s3">&quot;budget&quot;</span><span class="s2">,</span><span class="s3">'worlwide_gross_income'</span><span class="s1">])</span>
+<span class="s1">plot=plx.scatter(df2</span><span class="s2">,</span><span class="s1">x=</span><span class="s3">'budget'</span><span class="s2">,</span><span class="s1">y=</span><span class="s3">'worlwide_gross_income'</span><span class="s2">,</span><span class="s1">hover_name=</span><span class="s3">&quot;title&quot;</span><span class="s1">)</span>
+<span class="s1">plot.show()</span>
+<span class="s0">#%% md 
+</span><span class="s1">## Esercizio 3 
+Considera il dataset dei profili di okcupid. 
+ 
+- Studia la relazione tra il sesso degli utenti e il loro ambito di lavoro.  Crea un grafico che illustri in modo intuitivo come sono legate queste due variabili categoriche. 
+- Utilizzando groupby, studia come varia la media dell'altezza riportata dagli utenti in funzione della loro eta', concentrandoti sul range tra i 18 e i 25 anni.  Visualizza questi dati tramite un grafico appropriato, eventualmente mostrando separatamente gli utenti maschi e femmine. 
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">df2 = pd.read_csv(</span><span class="s3">&quot;data/profiles_revised.csv&quot;</span><span class="s1">)</span>
+<span class="s1">df2 = df2.dropna(axis=</span><span class="s4">0</span><span class="s2">,</span><span class="s1">subset=[</span><span class="s3">&quot;age&quot;</span><span class="s2">,</span><span class="s3">'height'</span><span class="s1">])</span>
+
+
+<span class="s1">df2.groupby([</span><span class="s3">&quot;job&quot;</span><span class="s2">, </span><span class="s3">&quot;sex&quot;</span><span class="s1">]).size()</span>
+<span class="s1">fx = plx.histogram(df2</span><span class="s2">, </span><span class="s1">orientation=</span><span class="s3">&quot;h&quot;</span><span class="s2">, </span><span class="s1">y=</span><span class="s3">&quot;job&quot;</span><span class="s2">, </span><span class="s1">color=</span><span class="s3">&quot;sex&quot;</span><span class="s2">, </span><span class="s1">barmode=</span><span class="s3">&quot;stack&quot;</span><span class="s2">, </span><span class="s1">barnorm=</span><span class="s3">&quot;percent&quot;</span><span class="s1">)</span>
+<span class="s1">fx.layout[</span><span class="s3">&quot;yaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Job&quot;</span>
+<span class="s1">fx.layout[</span><span class="s3">&quot;xaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;%&quot;</span>
+<span class="s1">fx.layout[</span><span class="s3">&quot;legend&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">][</span><span class="s3">&quot;text&quot;</span><span class="s1">] = </span><span class="s3">&quot;Sex&quot;</span>
+<span class="s1">fx</span>
+
+<span class="s0">#%% 
+</span>
+<span class="s1">df2=df2.loc[(df2[</span><span class="s3">'age'</span><span class="s1">]&gt;=</span><span class="s4">18</span><span class="s1">)&amp;(df2[</span><span class="s3">'age'</span><span class="s1">]&lt;=</span><span class="s4">25</span><span class="s1">)]</span>
+
+<span class="s1">df2.groupby([</span><span class="s3">&quot;age&quot;</span><span class="s2">,</span><span class="s3">&quot;height&quot; </span><span class="s1">]).size()</span>
+
+<span class="s1">fx=plx.box(df2</span><span class="s2">,</span><span class="s1">x=df2[</span><span class="s3">&quot;age&quot;</span><span class="s1">]</span><span class="s2">,</span><span class="s1">y=df2[</span><span class="s3">&quot;height&quot;</span><span class="s1">])</span>
+<span class="s0"># = plx.histogram(df3, orientation=&quot;v&quot;, x=&quot;age&quot;, y=&quot;height&quot;)</span>
+<span class="s1">fx.layout[</span><span class="s3">&quot;yaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Height&quot;</span>
+<span class="s1">fx.layout[</span><span class="s3">&quot;xaxis&quot;</span><span class="s1">][</span><span class="s3">&quot;title&quot;</span><span class="s1">] = </span><span class="s3">&quot;Age&quot;</span>
+
+<span class="s1">fx</span></pre>
+</body>
+</html>
