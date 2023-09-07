@@ -1,0 +1,25 @@
+reset;
+
+/* Tells AMPL to use CPLEX*/
+option solver cplex;
+
+option presolve 0;
+option cplex_options 'presolve 0 sensitivity';
+
+/* Display 2 digits */
+option display_round 2;
+
+model explicit.mod;  
+/*data MODELNAME.dat; */
+solve;
+display z;
+
+
+
+/* Display all variables */
+display {j in 1.._nvars} 
+	(_varname[j],_var[j],_var[j].rc);
+
+/* Display all constraints */
+display {j in 1.._ncons} 
+	(_conname[j],_con[j].body,_con[j].slack, _con[j].dual,_con[j].up, _con[j].down);

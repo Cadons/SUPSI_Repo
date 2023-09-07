@@ -1,0 +1,11 @@
+maximize
+         4 x1 + x2
+subject to
+weight: x1 + 0.2 x2 <= 1000
+volume: 400 x1 + 150 x2 <= 500000
+bounds
+      x1 >= 0
+      x2 >= 0
+general
+       x1 x2
+End

@@ -1,0 +1,10 @@
+Minimize
+ 180 l + 3000 c + 350 u
+Subject to
+0.3 l + 2 c +10 u >= 2
+30 l + 20 c +10 u >= 100
+Bounds
+l >=0
+c >= 0
+u >=0
+End
