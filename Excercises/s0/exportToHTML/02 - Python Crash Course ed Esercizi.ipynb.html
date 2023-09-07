@@ -1,0 +1,473 @@
+<html>
+<head>
+<title>02 - Python Crash Course ed Esercizi.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #cc7832;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+02 - Python Crash Course ed Esercizi.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+</span><span class="s1"># Python Crash Course 
+ 
+![](https://imgs.xkcd.com/comics/python.png) 
+ 
+(Nota: in python 3, Hello World e' `print(&quot;Hello, world!&quot;)`, con le parentesi.) 
+</span><span class="s0">#%% md 
+</span><span class="s1">## Istruzioni 
+Scrivi il programma Python nella cella sotto il testo dell'esercizio (o creane una nuova usando il tasto &quot;+&quot; in alto a sx). Stampa sempre a video il risultato finale per verificare la correttezza dell'esercizio.  Talvolta richiamiamo alcuni concetti importanti in una cella di codice sotto il testo dell'esercizio, prova a eseguirla ed eventualmente modificarla per assicurarti di aver capito il necessario. 
+ 
+Suggerimento: per eseguire una cella di codice, digita `CTRL+Enter` mentre la cella e' selezionata. 
+ 
+Ricorda: tutte le variabili assegnate in precedenza rimangono in memoria! Se vuoi, puoi azzerare lo stato della memoria eseguendo dal menu' sopra: `Kernel -&gt; Restart &amp; Clear Outputs`. 
+ 
+## Consegna 
+Per tutte le esercitazioni, e' obbligatorio **consegnare la soluzione di tutti gli esercizi** (tranne quelli marcati come opzionali) **entro l'inizio della lezione successiva**, nell'apposito assignment su iCorsi.  Per consegnare: 
+- eseguire l'intero notebook partendo da zero (`Kernel -&gt; Restart &amp; Run All`), e controllare che le soluzioni siano quelle attese; 
+- esportare il notebook in formato html (`File -&gt; Download as...`) e consegnare il file risultante. 
+ 
+Nel caso non abbiate potuto completare uno o piu' esercizi, descrivete il problema incontrato e **consegnate comunque il file con il resto delle soluzioni**. 
+ 
+## Soluzioni 
+Durante la lezione successiva verranno pubblicate (ed eventualmente discusse) le soluzioni agli esercizi.  Controllatele sempre e confrontatele con le vostre.  Se qualcosa non e' chiaro, contattate i docenti per email. 
+ 
+ 
+## Dove cercare aiuto 
+Quasi tutto quello che ci serve sta scritto da qualche parte qua dentro: [Python tutorial](https://docs.python.org/3.10/tutorial/index.html).  Di particolare interesse per ora: [Basics](https://docs.python.org/3.10/tutorial/introduction.html), [Controllo di flusso](https://docs.python.org/3.10/tutorial/controlflow.html) (if, for, while...), [Strutture dati](https://docs.python.org/3.10/tutorial/datastructures.html) (liste, set, dict).  [Qui](https://docs.python.org/3.10/tutorial/inputoutput.html#fancier-output-formatting) trovate molte info sulla formattazione di stringhe.  Se mai ci fosse bisogno, [qui](https://docs.python.org/3.10/library/index.html) c'e' la documentazione completa della standard library.  Per cercare una keyword nella documentazione usate la quick search box in alto a destra. 
+![image.png](attachment:image.png) 
+ 
+Oppure usate google.  Attenzione in questo caso che stiamo usando Python 3.  Fino a qualche anno fa, era ancora maggioritario Python 2, quindi potreste trovare alcuni suggerimenti per quella versione.  Ad esempio, in python 2 `print` non aveva bisogno di parentesi. 
+ 
+### Tips 
+ 
+- `CTRL+INVIO`: Esegue la cella corrente 
+- `Kernel &gt; Restart kernel and clear all outputs...`: resetta il notebook allo stato iniziale, dimenticando tutte le variabili 
+- Icona &quot;play&quot;: esegui questa cella e continua 
+- Icona &quot;stop&quot;: interrompe l'esecuzione 
+- Icona &quot;fast forward&quot;: resetta il kernel ed esegui l'intero notebook 
+- Icona &quot;+&quot;: aggiunge una cella sotto quella attuale 
+ 
+ 
+Potete cambiare il tipo di una cella (Markdown oppure codice) con l'apposito dropdown (di solito non sara' necessario farlo) 
+</span><span class="s0">#%% md 
+</span><span class="s1">## Esercizi facili di riscaldamento 
+Per prendere un po' di confidenza con il linguaggio. 
+Se non sai usare le f-strings, leggi [questo tutorial](https://realpython.com/python-f-strings/). 
+ 
+### 0.1 
+Chiedi all'utente il nome, poi salutalo 
+</span><span class="s0">#%% 
+# Hints</span>
+<span class="s1">risposta = input(</span><span class="s2">&quot;Domanda? &quot;</span><span class="s1">) </span><span class="s0"># Ottenere input (stringa) dall'utente</span>
+<span class="s1">print(</span><span class="s2">f&quot;La risposta e' </span><span class="s3">{</span><span class="s1">risposta</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">) </span><span class="s0"># Formattare una stringa</span>
+<span class="s0">#%% 
+</span><span class="s1">a = </span><span class="s4">5</span>
+<span class="s1">print(a)</span>
+<span class="s1">b = </span><span class="s4">5</span><span class="s1">+</span><span class="s4">4</span>
+<span class="s1">print(b)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">answer=input(</span><span class="s2">&quot;What's your name? &quot;</span><span class="s1">)</span>
+<span class="s1">print(</span><span class="s2">f&quot;Hi, </span><span class="s3">{</span><span class="s1">answer</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 0.2 
+Saluta l'utente N volte, dove N e' inserito dall'utente 
+ 
+</span><span class="s0">#%% 
+# Hints</span>
+<span class="s1">variabile_stringa = </span><span class="s2">&quot;5&quot;</span>
+<span class="s1">variabile_intera = int(variabile_stringa) </span><span class="s0"># cast</span>
+<span class="s1">print(type(variabile_stringa)</span><span class="s3">, </span><span class="s1">type(variabile_intera))</span>
+
+<span class="s0"># questo funziona...</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(variabile_intera):</span>
+    <span class="s1">print(i)</span>
+    
+<span class="s0"># questo no!</span>
+<span class="s0">#for i in range(variabile_stringa):</span>
+<span class="s0">#    print(i)</span>
+<span class="s0">#%% 
+# soluzione</span>
+<span class="s1">N=input(</span><span class="s2">&quot;Insert N &quot;</span><span class="s1">)</span>
+<span class="s1">answer=input(</span><span class="s2">&quot;What's your name? &quot;</span><span class="s1">)</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(int(N)):</span>
+    <span class="s1">print(</span><span class="s2">f&quot;Hi, </span><span class="s3">{</span><span class="s1">answer</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 0.3 
+Stampa una matrice 5x5 tipo questa, usando due cicli for innestati. 
+``` 
+1  2  3  4  5 
+2  4  6  8 10 
+3  6  9 12 15 
+4  8 12 16 20 
+5 10 15 20 25 
+``` 
+</span><span class="s0">#%% 
+# Hints</span>
+<span class="s1">print(</span><span class="s2">&quot;1 &quot;</span><span class="s3">, </span><span class="s1">end=</span><span class="s2">&quot;&quot;</span><span class="s1">) </span><span class="s0"># Non stampa il newline in fondo</span>
+<span class="s1">print(</span><span class="s2">&quot;2&quot;</span><span class="s1">) </span><span class="s0"># Di default invece stampa il newline in fondo</span>
+<span class="s1">print(</span><span class="s2">&quot;1</span><span class="s3">\t</span><span class="s2">2</span><span class="s3">\t</span><span class="s2">3</span><span class="s3">\t</span><span class="s2">4&quot;</span><span class="s1">) </span><span class="s0"># \t e' un carattere di tabulazione, come in Java</span>
+<span class="s1">a = </span><span class="s4">2</span>
+<span class="s1">b = </span><span class="s4">3</span>
+<span class="s1">print(</span><span class="s2">f&quot;a = </span><span class="s3">{</span><span class="s1">a</span><span class="s3">}</span><span class="s2">; b = </span><span class="s3">{</span><span class="s1">b</span><span class="s3">}</span><span class="s2">; a + b = </span><span class="s3">{</span><span class="s1">a+b</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">) </span><span class="s0"># dentro le {} potete mettere qualsiasi espressione!</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">k=</span><span class="s4">0</span>
+<span class="s1">output=</span><span class="s2">&quot;&quot;</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(</span><span class="s4">5</span><span class="s1">):</span>
+    <span class="s3">for  </span><span class="s1">j </span><span class="s3">in </span><span class="s1">range(</span><span class="s4">5</span><span class="s1">):</span>
+        <span class="s1">k=k+</span><span class="s4">1</span>
+        <span class="s1">output+=</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">k</span><span class="s3">}\t</span><span class="s2">&quot;</span>
+    <span class="s1">print(output)</span>
+    <span class="s1">output=</span><span class="s2">&quot;&quot;</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 0.4 Fizz 
+Stampa i numeri da 1 a 20, uno per riga.  Ma se il numero e' divisibile per 3, invece del numero, stampa &quot;Fizz&quot;.  Usa l'operatore `%` per ottenere il resto della divisione tra due interi, come in Java.  Se vuoi, impara le funzionalita' di `range` leggendo la sua [documentazione](https://docs.python.org/3.6/library/stdtypes.html?highlight=range#range) (specialmente gli esempi).  
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(</span><span class="s4">1</span><span class="s3">,</span><span class="s4">20</span><span class="s1">):</span>
+    <span class="s3">if </span><span class="s1">i%</span><span class="s4">3</span><span class="s1">==</span><span class="s4">0</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">&quot;Fizz&quot;</span><span class="s1">)</span>
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">i</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+<span class="s0">#%% md 
+</span><span class="s1">### 0.5 Fizz Buzz 
+![](https://cdn-images-1.medium.com/max/1600/1*lPfdDAivK_QNzqknqLCP8w.png) 
+ 
+Stampa i numeri da 1 a 20, uno per riga. Ma: 
+- se il numero e' divisibile per 3, invece del numero, stampa `Fizz!`; 
+- se il numero e' divisibile per 5, invece del numero, stampa `Buzz!`; 
+- se il numero e' divisibile sia per 3 che per 5, invece del numero, stampa `FizzBuzz!`. 
+ 
+Sembra semplice, ma [non datelo troppo per scontato](https://blog.codinghorror.com/why-cant-programmers-program/). 
+</span><span class="s0">#%% 
+# Hint</span>
+<span class="s1">a = </span><span class="s4">5</span>
+<span class="s3">if </span><span class="s1">(a &gt; </span><span class="s4">3</span><span class="s1">) </span><span class="s3">and </span><span class="s1">(a &lt; </span><span class="s4">7</span><span class="s1">):</span>
+    <span class="s1">print(</span><span class="s2">&quot;Si&quot;</span><span class="s1">)</span>
+<span class="s3">else</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s2">&quot;No&quot;</span><span class="s1">)    </span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(</span><span class="s4">1</span><span class="s3">,</span><span class="s4">20</span><span class="s1">):</span>
+    <span class="s3">if </span><span class="s1">i%</span><span class="s4">3</span><span class="s1">==</span><span class="s4">0 </span><span class="s3">and </span><span class="s1">i%</span><span class="s4">5</span><span class="s1">==</span><span class="s4">0</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">&quot;FizzBuzz!&quot;</span><span class="s1">)</span>
+    <span class="s3">elif </span><span class="s1">i%</span><span class="s4">3</span><span class="s1">==</span><span class="s4">0</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">&quot;Fizz&quot;</span><span class="s1">)</span>
+    <span class="s3">elif </span><span class="s1">i%</span><span class="s4">5</span><span class="s1">==</span><span class="s4">0</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">&quot;Buzz&quot;</span><span class="s1">)</span>
+
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">i</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 0.6 f-strings 
+ 
+Completa la cella sotto (leggi la documentazione sulle f-strings!) in modo da stampare: 
+``` 
+Stiamo viaggiando a 98.13 km/h (81.8% della velocita' massima) 
+``` 
+</span><span class="s0">#%% 
+</span><span class="s1">max_speed = </span><span class="s4">120  </span><span class="s0"># km/h</span>
+<span class="s1">current_speed = </span><span class="s4">98.128214</span>
+<span class="s0"># Completa!</span>
+<span class="s1">print(</span><span class="s2">f&quot;Stiamo viaggiando a </span><span class="s3">{</span><span class="s1">current_speed</span><span class="s3">:</span><span class="s2">.2f</span><span class="s3">} </span><span class="s2">km/h (</span><span class="s3">{</span><span class="s1">(current_speed*</span><span class="s4">100</span><span class="s1">)/max_speed</span><span class="s3">:</span><span class="s2">.2f</span><span class="s3">}</span><span class="s2">% della velocita' massima)&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">## Esercizio 1 (liste) 
+La successione di Fibonacci è una sequenza di numeri interi in cui i primi due elementi sono 1, e i successivi elementi sono dati dalla somma dei due precedenti (es. `[1,1,2,3,5,8,13,21...]`)  
+ 
+![Fibonacci](https://images.wired.it/wp-content/uploads/2017/11/23130621/1511435180_Fibonacci-1050x590.jpg) 
+([info](https://www.wired.it/play/cultura/2017/11/23/fibonacci-day-numeri/)) 
+ 
+### 1.1 
+Scrivi un programma che generi una lista (che chiameremo `listFib`) contenete la successione di Fibonacci con tutti i numeri minori o uguali di $200$ (in altre parole, l'ultimo elemento della lista deve essere un numero minore o uguale di $200$).  Suggerimento: inizializza la lista con i primi due elementi `listFib = [1,1]` e poi estendila. _Da quanti elementi è composta la lista?_ 
+12 
+</span><span class="s0">#%% 
+#Hint </span>
+<span class="s1">lista = [</span><span class="s4">10</span><span class="s3">,</span><span class="s4">20</span><span class="s3">,</span><span class="s4">30</span><span class="s1">]</span>
+<span class="s1">print(len(lista)) </span><span class="s0"># Lunghezza lista (un int)</span>
+
+<span class="s1">lista.append(</span><span class="s4">40</span><span class="s1">)  </span><span class="s0"># Aggiungere elemento ad una lista </span>
+<span class="s1">print(lista)</span>
+
+<span class="s3">while</span><span class="s1">(</span><span class="s3">True</span><span class="s1">):</span>
+    <span class="s3">if </span><span class="s1">len(lista) &lt; </span><span class="s4">6</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">&quot;Aggiungo un elemento alla lista&quot;</span><span class="s1">)</span>
+        <span class="s1">lista.append(</span><span class="s2">&quot;Nuovo elemento&quot;</span><span class="s1">)</span>
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">'Esco dal ciclo while'</span><span class="s1">)</span>
+        <span class="s3">break </span><span class="s0"># Esci dal ciclo while</span>
+        
+<span class="s1">print(lista) </span><span class="s0"># Nota che la lista puo' contenere tipi qulsiasi</span>
+
+<span class="s1">print(</span><span class="s2">f&quot;Il primo elemento della lista e' </span><span class="s3">{</span><span class="s1">lista[</span><span class="s4">0</span><span class="s1">]</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">print(</span><span class="s2">f&quot;Il terzultimo elemento della lista e' </span><span class="s3">{</span><span class="s1">lista[-</span><span class="s4">3</span><span class="s1">]</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+# Hint: come iterare su una lista:</span>
+<span class="s3">for </span><span class="s1">elem </span><span class="s3">in </span><span class="s1">lista:  </span><span class="s0"># Non c'e' bisogno di definire un indice i!</span>
+    <span class="s1">print(elem)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">mylist=[</span><span class="s4">1</span><span class="s3">,</span><span class="s4">1</span><span class="s1">]</span>
+<span class="s1">n=</span><span class="s4">200</span>
+<span class="s1">i=</span><span class="s4">2</span>
+<span class="s3">while</span><span class="s1">(</span><span class="s3">True</span><span class="s1">):</span>
+    <span class="s3">if</span><span class="s1">(mylist.__getitem__(i-</span><span class="s4">1</span><span class="s1">)+mylist.__getitem__(i-</span><span class="s4">2</span><span class="s1">)&lt;n):</span>
+        <span class="s1">mylist.append(mylist.__getitem__(i-</span><span class="s4">1</span><span class="s1">)+mylist.__getitem__(i-</span><span class="s4">2</span><span class="s1">))</span>
+        <span class="s1">i=i+</span><span class="s4">1</span>
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s3">break</span>
+
+<span class="s1">print(len(mylist))</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 1.2 
+Esegui `listFib * 2` ed esamina il risultato.  Hai capito cosa e' successo? crea una copia della lista nella lista stessa 
+ 
+E cosa succede se esegui `listFib * 1.5`? da errore perchè non è un valore intero 
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">mylist2=mylist*</span><span class="s4">2</span>
+<span class="s1">print(mylist2)</span>
+<span class="s1">mylist3=mylist*</span><span class="s4">1.5</span>
+<span class="s1">print(mylist)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 1.3 
+Crea una nuova lista `listFib2`. Ogni elemento della nuova lista è uguale all'elemento corrispondente della list `listFib` moltiplicato per due.  
+ 
+Suggerimento: conviene inizializzare una lista vuota con il comando `lista = []` (oppure, equivalentemente, `lista = list()`) e poi riempirla durante l'esecuzione del codice con il comando `lista.append(elemento)`. 
+</span><span class="s0">#%% 
+# Soluzione</span>
+
+<span class="s1">listFib2=[]</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(len(mylist)):</span>
+    <span class="s1">listFib2.append(mylist.__getitem__(i)*</span><span class="s4">2</span><span class="s1">)</span>
+
+<span class="s1">print(listFib2)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 1.4 
+Si generi una nuova lista `listRatio` dove l'elemento in posizione $i$ è uguale a $\frac{listFib[i+1]}{listFib[i]}$. 
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">listRatio=[]</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(len(mylist)-</span><span class="s4">1</span><span class="s1">):</span>
+    <span class="s1">listRatio.append(mylist[i+</span><span class="s4">1</span><span class="s1">]/mylist[i])</span>
+<span class="s1">print(listRatio)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 1.5 
+Genera una lista `newList` che contenga tutti i numeri tra 5 e 100 (compresi) che _non_ appartengono alla serie di Fibonacci.  
+ 
+Suggerimento: L'operatore `in` restituisce `True` se l'elemento a sinistra appartiene alla lista a destra; `not in` per controllare se non appartiene. 
+</span><span class="s0">#%% 
+# Hint</span>
+<span class="s1">print(</span><span class="s4">1 </span><span class="s3">in </span><span class="s1">[</span><span class="s4">1</span><span class="s3">,</span><span class="s4">2</span><span class="s3">,</span><span class="s4">3</span><span class="s1">])</span>
+<span class="s1">print(</span><span class="s4">0 </span><span class="s3">in </span><span class="s1">[</span><span class="s4">1</span><span class="s3">,</span><span class="s4">2</span><span class="s3">,</span><span class="s4">3</span><span class="s1">])</span>
+<span class="s1">print(</span><span class="s4">0 </span><span class="s3">not in </span><span class="s1">[</span><span class="s4">1</span><span class="s3">,</span><span class="s4">2</span><span class="s3">,</span><span class="s4">3</span><span class="s1">])</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">newList=[]</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(</span><span class="s4">5</span><span class="s3">,</span><span class="s4">100</span><span class="s1">):</span>
+    <span class="s3">if </span><span class="s1">i </span><span class="s3">not in </span><span class="s1">mylist:</span>
+        <span class="s1">newList.append(i)</span>
+<span class="s1">print(newList)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 1.6 
+Scrivere un programma che generi una lista di liste (ogni elemento della lista è una lista). Nello specifico, la lista da generare dovrà essere composta da 2 liste: la prima contenete tutti i numeri pari tra quelli in `listFib`, la seconda tutti i numeri dispari. 
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">newList2=[]</span>
+<span class="s1">newList2.append(mylist)</span>
+<span class="s1">newList2.append([])</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(n-</span><span class="s4">1</span><span class="s1">):</span>
+    <span class="s3">if </span><span class="s1">i%</span><span class="s4">2</span><span class="s1">==</span><span class="s4">1</span><span class="s1">:</span>
+        <span class="s1">newList2[</span><span class="s4">1</span><span class="s1">].append(i)</span>
+
+<span class="s1">print(newList2)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 1.7 (opzionale) 
+Simile al punto 3. Sia data la lista listFib generata al passo 1. Per tutti i numeri interi da $5$ a $10$ verificare se il numero è presente nella lista. Se non è presente, aggiungerlo rispettando l'ordine crescente degli elementi della lista. Se invece è presente, allora toglierlo dalla lista. Metodi utili: remove, insert. Vedere cella sotto per capire come funzionano 
+</span><span class="s0">#%% 
+# Hint</span>
+<span class="s1">lista = [</span><span class="s4">10</span><span class="s3">,</span><span class="s4">20</span><span class="s3">,</span><span class="s4">30</span><span class="s3">,</span><span class="s4">40</span><span class="s3">,</span><span class="s4">60</span><span class="s1">]</span>
+<span class="s1">lista.insert(</span><span class="s4">1</span><span class="s3">,</span><span class="s4">13</span><span class="s1">) </span><span class="s0"># Inserisco il numero 13 nella posizion con indice 1 </span>
+<span class="s1">print(lista)</span>
+
+<span class="s1">lista.remove(</span><span class="s4">30</span><span class="s1">) </span><span class="s0"># Rimuovo il numero 30</span>
+<span class="s1">print(lista)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">listFib=sorted(mylist)</span>
+
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">range(</span><span class="s4">5</span><span class="s3">,</span><span class="s4">10</span><span class="s1">):</span>
+    <span class="s3">if </span><span class="s1">i </span><span class="s3">not in </span><span class="s1">listFib:</span>
+        <span class="s1">listFib.append(i)</span>
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s1">listFib.append(i)</span>
+    <span class="s1">listFib=sorted(listFib)</span>
+<span class="s1">print(listFib)</span>
+<span class="s0">#%% md 
+</span><span class="s1">## Esercizio 2 (dizionari) 
+I dizionari sono analoghi alle HashMap in Java, e funzionano nello stesso modo. [Qui](http://introtopython.org/dictionaries.html) trovate un'ottima introduzione molto graduale.  Si usano moltissimo e quindi e' importante saperli manipolare. 
+ 
+### Introduzione molto rapida. 
+</span><span class="s0">#%% 
+</span><span class="s1">pop = dict() </span><span class="s0"># Crea un dizionario vuoto</span>
+<span class="s1">pop[</span><span class="s2">&quot;Manno&quot;</span><span class="s1">] = </span><span class="s4">1318 </span><span class="s0"># Aggiunta chiave-valore</span>
+<span class="s1">pop[</span><span class="s2">&quot;Bioggio&quot;</span><span class="s1">] = </span><span class="s4">2648</span>
+<span class="s1">pop[</span><span class="s2">&quot;Lugano&quot;</span><span class="s1">] = </span><span class="s4">63932</span>
+<span class="s0"># Equivalente:</span>
+<span class="s0"># pop = {&quot;Manno&quot; : 1318, &quot;Bioggio&quot; : 2648, &quot;Lugano&quot; : 63932}</span>
+<span class="s1">print(pop)</span>
+<span class="s0">#%% 
+</span><span class="s1">print(pop[</span><span class="s2">&quot;Manno&quot;</span><span class="s1">]) </span><span class="s0"># Interrogazione</span>
+<span class="s1">print(pop.keys()) </span><span class="s0"># Tutte le chiavi: agisce come una lista</span>
+<span class="s1">print(</span><span class="s2">&quot;Lugano&quot; </span><span class="s3">in </span><span class="s1">pop.keys())</span>
+<span class="s0">#%% 
+</span><span class="s1">print(pop.items()) </span><span class="s0"># Restituisce una lista di tuple, ciascuna delle quali contiene due elementi: chiave e valore</span>
+<span class="s0"># Per la precisione non e' una lista, ma e' un oggetto su cui si puo' iterare come se fosse una lista</span>
+<span class="s0">#%% 
+</span><span class="s3">for </span><span class="s1">tupla </span><span class="s3">in </span><span class="s1">pop.items(): </span><span class="s0"># ogni elemento della simil-lista di cui sopra</span>
+    <span class="s1">k = tupla[</span><span class="s4">0</span><span class="s1">]</span>
+    <span class="s1">v = tupla[</span><span class="s4">1</span><span class="s1">]</span>
+    <span class="s1">print(</span><span class="s2">f&quot;Key=</span><span class="s3">{</span><span class="s1">k</span><span class="s3">}</span><span class="s2">, Value=</span><span class="s3">{</span><span class="s1">v</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+# Ancora meglio (usa una funzione comodissima nota come tuple unpacking)</span>
+<span class="s3">for </span><span class="s1">tupla </span><span class="s3">in </span><span class="s1">pop.items():</span>
+    <span class="s1">k</span><span class="s3">,</span><span class="s1">v = tupla </span><span class="s0"># assegna il primo e il secondo elemento di tupla a k e v rispettivamente</span>
+    <span class="s1">print(</span><span class="s2">f&quot;Key=</span><span class="s3">{</span><span class="s1">k</span><span class="s3">}</span><span class="s2">, Value=</span><span class="s3">{</span><span class="s1">v</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+# Ancora meglio</span>
+<span class="s3">for </span><span class="s1">k</span><span class="s3">,</span><span class="s1">v </span><span class="s3">in </span><span class="s1">pop.items():</span>
+    <span class="s1">print(</span><span class="s2">f&quot;Key=</span><span class="s3">{</span><span class="s1">k</span><span class="s3">}</span><span class="s2">, Value=</span><span class="s3">{</span><span class="s1">v</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 2.1 
+Si costruisca un dizionario con almeno 5 elementi (generati a vostro piacimento) dove a un nome di una persona è associata la sua età (nello specifico, ogni elemento del dizionario dovrà avere come chiave (key) il nome di una persona, e come valore (value) l'età.   
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">persons=dict();</span>
+<span class="s1">persons[</span><span class="s2">&quot;Mario&quot;</span><span class="s1">]=</span><span class="s4">33</span>
+<span class="s1">persons[</span><span class="s2">&quot;Paolo&quot;</span><span class="s1">]=</span><span class="s4">65</span>
+<span class="s1">persons[</span><span class="s2">&quot;Gino&quot;</span><span class="s1">]=</span><span class="s4">102</span>
+<span class="s1">persons[</span><span class="s2">&quot;Simone&quot;</span><span class="s1">]=</span><span class="s4">41</span>
+<span class="s1">persons[</span><span class="s2">&quot;Matteo&quot;</span><span class="s1">]=</span><span class="s4">51</span>
+<span class="s1">print(persons)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 2.2 
+Data una nuova lista di nomi, stampa la stringa `&quot;{nome} ha {età} anni&quot;` (es. &quot;Luca ha 22 anni&quot;) per ogni nome presente nel dizionario. Se il nome non è nel dizionario, stampa `&quot;{nome} non è presente nel dizionario&quot;` (es. &quot;Antonio non è presente nel dizionario&quot;).  
+ 
+Aiuto: per creare un iterable con le chiavi di un dizionario, usare il metodo `keys()` del dizionario (vedi cella sotto per esempio). 
+</span><span class="s0">#%% 
+# Hint</span>
+<span class="s1">dizionario = {</span><span class="s2">&quot;Albero&quot;</span><span class="s1">: (</span><span class="s2">&quot;tronco&quot;</span><span class="s3">, </span><span class="s2">&quot;rami&quot;</span><span class="s1">)</span><span class="s3">, </span><span class="s2">&quot;Fiore&quot;</span><span class="s1">: (</span><span class="s2">&quot;stelo&quot;</span><span class="s3">,</span><span class="s2">&quot;petalo&quot;</span><span class="s1">)};</span>
+<span class="s3">for </span><span class="s1">name </span><span class="s3">in </span><span class="s1">dizionario.keys():</span>
+    <span class="s1">print(name)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+
+<span class="s1">persons2={</span><span class="s2">&quot;Marco&quot;</span><span class="s3">,</span><span class="s2">&quot;Antonio&quot;</span><span class="s3">,</span><span class="s2">&quot;Luca&quot;</span><span class="s3">,</span><span class="s2">&quot;Lorenzo&quot;</span><span class="s3">,</span><span class="s2">&quot;Matteo&quot;</span><span class="s3">,</span><span class="s2">&quot;Gino&quot;</span><span class="s1">}</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">persons2:</span>
+    <span class="s3">if </span><span class="s1">i </span><span class="s3">in </span><span class="s1">persons.keys():</span>
+
+        <span class="s1">print(</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">i</span><span class="s3">} </span><span class="s2">ha </span><span class="s3">{</span><span class="s1">persons[i]</span><span class="s3">} </span><span class="s2">anni&quot;</span><span class="s1">)</span>
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">i</span><span class="s3">} </span><span class="s2">non è presente nel dizionario&quot;</span><span class="s1">)</span>
+
+<span class="s0">#%% md 
+</span><span class="s1">### 2.3 
+Si scriva un programma che per ogni elemento del dizionario stampi la seguente stringa `{nome} ha {età} anni`. 
+ 
+Aiuto: per accedere agli elementi del dizionario uno per uno (considerando le coppie `key,value` corrispondenti) usare il metodo `items()` come mostrato sopra e nell'esempio sotto. 
+</span><span class="s0">#%% 
+# Hint</span>
+
+<span class="s3">for </span><span class="s1">name</span><span class="s3">, </span><span class="s1">age </span><span class="s3">in </span><span class="s1">dizionario.items():</span>
+    <span class="s1">print(</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">name</span><span class="s3">} {</span><span class="s1">age</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s3">for </span><span class="s1">p </span><span class="s3">in </span><span class="s1">persons.items():</span>
+    <span class="s1">print(</span><span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">p[</span><span class="s4">0</span><span class="s1">]</span><span class="s3">} </span><span class="s2">ha </span><span class="s3">{</span><span class="s1">p[</span><span class="s4">1</span><span class="s1">]</span><span class="s3">} </span><span class="s2">anni&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 2.4 
+Creare un nuovo dizionario che contenga tutti gli elementi del dizionario precedente con età compresa tra $23$ anni (inclusi) e $60$ anni (esclusi).   
+</span><span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">newdic=dict()</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">persons.items():</span>
+    <span class="s3">if</span><span class="s1">(i[</span><span class="s4">1</span><span class="s1">]&gt;</span><span class="s4">23 </span><span class="s3">and </span><span class="s1">i[</span><span class="s4">1</span><span class="s1">]&lt;</span><span class="s4">60</span><span class="s1">):</span>
+        <span class="s1">newdic[i[</span><span class="s4">0</span><span class="s1">]]=i[</span><span class="s4">1</span><span class="s1">]</span>
+<span class="s1">print(newdic)</span>
+<span class="s0">#%% md 
+</span><span class="s1">## Esercizio 3 (stringhe) 
+</span><span class="s0">#%% md 
+</span><span class="s1">### 3.1 
+Si scriva un programma Python che chieda all'utente di inserire una frase con almeno 10 parole. Per semplicità la frase non dovrà contenere punteggiatura. Esempio di frase che l'utente potrà inserire: &quot;Oggi è una bella giornata Domani sarà una bellissima giornata&quot;. Comando utile per inserire una stringa da linea di comando: input 
+ 
+Una volta inserita la frase, si scriva un programma che conti: 
+- il numero di parole all'interno della frase. Comando utile per creare lista dividere la stringa in parole: `split` ([documentazione](https://docs.python.org/3.6/library/stdtypes.html#str.split)) 
+- il numero di occorrenze di ogni parola all'interno della frase. Nello specifico, si crei un dizionario dove la chiave è la parola, e il valore il numero di occorrenze della parola. Nel conteggio delle occorrenze non si faccia distinzione tra lettere maiuscole e minuscole. 
+- il numero di occorrenze di ogni lettera all'interno della frase. Nello specifico, si crei un dizionario simile a quello sopra. Nel conteggio delle occorrenze non si faccia distinzione tra lettere maiuscole e minuscole. 
+     
+La cella sotto mostra come funzionano i comandi `input` e `split` 
+</span><span class="s0">#%% 
+# Hint</span>
+<span class="s1">stringa = input(</span><span class="s2">&quot;Inserire una frase: &quot;</span><span class="s1">)</span>
+<span class="s1">parole = stringa.split()</span>
+<span class="s1">print(parole)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">stringa = input(</span><span class="s2">&quot;Inserire una frase: &quot;</span><span class="s1">)</span>
+<span class="s1">parole = stringa.split()</span>
+<span class="s1">print(parole)</span>
+<span class="s1">print(</span><span class="s2">f&quot;Numero parole:&quot;</span>
+      <span class="s2">f&quot;</span><span class="s3">{</span><span class="s1">len(parole)</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">cnt=</span><span class="s4">0</span>
+<span class="s1">paroleDic=dict()</span>
+<span class="s3">for </span><span class="s1">parola </span><span class="s3">in </span><span class="s1">parole:</span>
+    <span class="s3">if </span><span class="s1">parola </span><span class="s3">not in </span><span class="s1">paroleDic.keys():</span>
+        <span class="s1">paroleDic[parola]=</span><span class="s4">1</span>
+    <span class="s3">else</span><span class="s1">:</span>
+        <span class="s1">paroleDic[parola]=paroleDic[parola]+</span><span class="s4">1</span>
+<span class="s1">print(</span><span class="s2">f&quot;Parole: </span><span class="s3">{</span><span class="s1">parole</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s1">lettereDic=dict()</span>
+<span class="s3">for </span><span class="s1">parola </span><span class="s3">in </span><span class="s1">parole:</span>
+    <span class="s3">for </span><span class="s1">c </span><span class="s3">in </span><span class="s1">range(len(parola)):</span>
+        <span class="s3">if </span><span class="s1">parola[c] </span><span class="s3">not in </span><span class="s1">lettereDic.keys():</span>
+            <span class="s1">lettereDic[parola[c]]=</span><span class="s4">1</span>
+        <span class="s3">else</span><span class="s1">:</span>
+            <span class="s1">lettereDic[parola[c]]=lettereDic[parola[c]]+</span><span class="s4">1</span>
+
+<span class="s1">print(</span><span class="s2">f&quot;Lettere: </span><span class="s3">{</span><span class="s1">lettereDic</span><span class="s3">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+<span class="s0">#%% md 
+</span><span class="s1">### 3.2 (opzionale) 
+Si scriva un programma Python che, data una stringa (senza punteggiatura), generi una nuova stringa rimovendo eventuali parole duplicate. Nel conteggio delle parole duplicate, non si faccia distinzione tra lettere maiuscole e minuscole. Comandi utili per creare una stringa a partire da una lista: `join` [documentazione](https://docs.python.org/3.6/library/stdtypes.html#str.join)  
+</span><span class="s0">#%% 
+# Hint</span>
+<span class="s1">listaParole = [</span><span class="s2">'ciao'</span><span class="s3">, </span><span class="s2">'a'</span><span class="s3">, </span><span class="s2">'tutti'</span><span class="s1">]</span>
+<span class="s1">stringa = </span><span class="s2">&quot; &quot;</span><span class="s1">.join(listaParole)</span>
+<span class="s1">print(stringa)</span>
+<span class="s0">#%% 
+# Soluzione</span>
+<span class="s1">stringa = input(</span><span class="s2">&quot;Inserire una frase: &quot;</span><span class="s1">)</span>
+<span class="s1">parole = stringa.split()</span>
+<span class="s0">#versione 1</span>
+<span class="s1">parole2=[]</span>
+<span class="s1">k=</span><span class="s4">0</span>
+<span class="s3">for </span><span class="s1">i </span><span class="s3">in </span><span class="s1">parole:</span>
+    <span class="s3">if </span><span class="s1">i </span><span class="s3">not in </span><span class="s1">parole2:</span>
+        <span class="s1">parole2.append(i)</span>
+<span class="s0">#versione 2</span>
+<span class="s1">parole2=set(parole)</span>
+
+<span class="s1">print(</span><span class="s2">&quot; &quot;</span><span class="s1">.join(parole2))</span>
+<span class="s0">#%% 
+</span></pre>
+</body>
+</html>

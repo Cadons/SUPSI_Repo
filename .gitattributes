@@ -1,0 +1,4 @@
+Excercises filter=lfs diff=lfs merge=lfs -text
+Note.docx filter=lfs diff=lfs merge=lfs -text
+Project filter=lfs diff=lfs merge=lfs -text
+Riassunto[[:space:]]esame.docx filter=lfs diff=lfs merge=lfs -text
