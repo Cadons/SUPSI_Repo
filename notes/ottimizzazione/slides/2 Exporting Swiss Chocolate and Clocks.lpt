@@ -1,0 +1,16 @@
+\* LPSolver *\
+
+\* Objective function *\
+Max 4x + y
+
+Subject To
+
+x + 0.2y <= 1000
+400x +150y<=500000
+
+Bounds
+\* Nel formato cplex questi vincoli non sono necessari *\
+x>=0
+y>=0
+
+End

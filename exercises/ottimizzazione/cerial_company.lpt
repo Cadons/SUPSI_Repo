@@ -1,0 +1,9 @@
+Max 5x + 4y
+Subject To
+2x + 3y <= 12000
+4x + 1y <= 16000
+1x + 1y <= 4300
+Bounds
+x >= 0
+y >= 0
+End

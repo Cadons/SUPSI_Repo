@@ -1,0 +1,15 @@
+Max
+3a+4b+5c+6d
+Subject to
+a+b+c+d<=57000
+3a>=y
+4b>=y
+5c>=y
+6d>=y
+Bounds
+a>=0
+b>=0
+c>=0
+d>=0
+y>=0
+End

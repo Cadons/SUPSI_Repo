@@ -1,0 +1,14 @@
+[A, B, C]=  S, stabilimenti
+[a,b,c,d,e]= C, clienti
+
+p(s) \forall s \in S, produzione massima stabilimento
+r(c) \forall c \in C, richieste
+k(c,s) \forall c \in C and \forall s in S, costo di trasporto
+
+objective:
+min: sum(k(c,s)*t(s,c)) \forall c \in C and \forall s in S
+
+c.s
+c1 sum(t(s))<=p(s) \forall s in S
+c2 sum(t(c))<=r(c) \forall c in C
+c3 p(s)>=0 \forall s in S
